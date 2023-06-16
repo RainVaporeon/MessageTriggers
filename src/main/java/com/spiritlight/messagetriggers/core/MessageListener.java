@@ -17,7 +17,6 @@ public class MessageListener {
     @SubscribeEvent
     public void onMessage(ClientChatReceivedEvent event) {
         if(TriggerFunctionManager.empty()) return;
-        Message.info("Found ClientChatReceivedEvent type " + event.getType() +", message " + event.getMessage().getUnformattedText());
         String content = event.getMessage().getUnformattedText();
 
         TriggerFunctionManager.trigger(content);
