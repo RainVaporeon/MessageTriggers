@@ -1,12 +1,10 @@
 package com.spiritlight.messagetriggers.objects.instructions.action;
 
-import com.spiritlight.messagetriggers.collections.MapPair;
 import com.spiritlight.messagetriggers.exceptions.functions.ArgumentMismatchException;
 import com.spiritlight.messagetriggers.objects.elements.Element;
 import com.spiritlight.messagetriggers.objects.elements.data.DataElement;
 import com.spiritlight.messagetriggers.objects.instructions.StatefulInstruction;
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.client.ClientCommandHandler;
 
 import java.util.Collections;
 import java.util.Set;

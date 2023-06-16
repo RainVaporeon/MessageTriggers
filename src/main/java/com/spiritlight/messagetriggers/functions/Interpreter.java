@@ -109,10 +109,10 @@ public class Interpreter {
         if(instruction instanceof RemoveInstruction) {
             try {
                 TriggerFunctionManager.unregister(((StringElement) element).getValue());
+                return Result.SUCCESS;
             } catch (ClassCastException e) {
                 throw new InterpretException("expected a String");
             }
-            return Result.FAIL;
         }
         return Result.FAIL;
     }

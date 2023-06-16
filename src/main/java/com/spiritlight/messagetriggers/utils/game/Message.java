@@ -11,6 +11,10 @@ public class Message {
         send(new TextComponentString(TextFormatting.RED + content));
     }
 
+    public static void info(String content) {
+        send(new TextComponentString(TextFormatting.YELLOW + content));
+    }
+
     public static void success(String content) {
         send(new TextComponentString(TextFormatting.GREEN + content));
     }

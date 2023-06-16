@@ -32,16 +32,22 @@ public class MainCommand extends AbstractCommand {
         try {
             Callback<List<Element>> cb = Interpreter.instance.interpret(value);
 
+            Message.info("Interpreting instruction...");
             if(cb.getResult() == Result.FAIL) {
                 Message.warn("Callback returned FAIL on parsing value `" + value + "`");
                 return;
             }
+            Message.success("Interpreted instruction successfully.");
 
             Main.function.accept(cb.get());
         } catch (InterpretException e) {
-            Message.warn("Failed to interpret exception: " + e.getMessage());
+            Message.warn("Failed to interpret: " + e.getMessage());
+            Message.info("Check the logs for more details.");
+            e.printStackTrace();
         } catch (AcceptException e) {
             Message.warn("Failed to accept supplied instructions: " + e.getMessage());
+            Message.info("Check the logs for more details.");
+            e.printStackTrace();
         }
     }
 
