@@ -29,10 +29,20 @@ public final class TriggerFunctionManager {
     // you can trigger an infinite recursion if you do it correctly
     private static final Set<String> antiRecursion = new ConcurrentTimedSet<>(500, TimeUnit.MILLISECONDS);
 
+    public static void printMap() {
+        System.out.println(antiRecursion);
+    }
+
     public static void trigger(String phrase) {
-        if (!containsPhrase(phrase)) return;
+        if (!containsPhrase(phrase)) {
+            System.out.println("Phrase " + phrase + " does not exist");
+            return;
+        }
         // returns if and only if a phrase already exists
-        if(!antiRecursion.add(phrase)) return;
+        if(!antiRecursion.add(phrase)) {
+            System.out.println("Phrase " + phrase + " exists");
+            return;
+        }
 
         for (Map.Entry<TriggerFunction, List<Element>> entry : functionMap.entrySet()) {
             TriggerFunction function = entry.getKey();

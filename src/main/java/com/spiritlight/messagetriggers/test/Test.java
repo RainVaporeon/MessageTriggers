@@ -1,15 +1,11 @@
 package com.spiritlight.messagetriggers.test;
 
-import com.spiritlight.messagetriggers.core.MessageListener;
+import com.spiritlight.messagetriggers.core.TriggerFunctionManager;
 import com.spiritlight.messagetriggers.functions.Interpreter;
 import com.spiritlight.messagetriggers.functions.TriggerFunction;
 import com.spiritlight.messagetriggers.internal.Core;
-import com.spiritlight.messagetriggers.objects.elements.data.DoubleElement;
 import com.spiritlight.messagetriggers.objects.elements.Element;
-import net.minecraft.client.Minecraft;
-import net.minecraft.network.play.server.SPacketChat;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraftforge.client.event.ClientChatReceivedEvent;
+import com.spiritlight.messagetriggers.objects.elements.data.DoubleElement;
 import net.minecraftforge.common.MinecraftForge;
 
 import java.util.List;
@@ -70,11 +66,22 @@ public class Test {
 
             System.out.println("Fired fake message");
 
+            TriggerFunctionManager.printMap();
+
             FakeTrigger.sendTrigger("example");
+
+            TriggerFunctionManager.printMap();
+
+            System.out.println("Waiting 1s");
+            Thread.sleep(1000);
 
             System.out.println("Fired fake message again");
 
+            TriggerFunctionManager.printMap();
+
             FakeTrigger.sendTrigger("example");
+
+            TriggerFunctionManager.printMap();
         } catch (Exception e) {
             e.printStackTrace();
         }
